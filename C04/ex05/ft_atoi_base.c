@@ -6,7 +6,7 @@
 /*   By: minjunki <minjunki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/13 16:02:39 by minjunki          #+#    #+#             */
-/*   Updated: 2021/03/13 16:03:16 by minjunki         ###   ########.fr       */
+/*   Updated: 2021/03/14 17:44:47 by minjunki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@ int	is_space(char c)
 {
 	if (c == ' ' || c == '\n' || c == '\t')
 		return (1);
-	if (c == '\v' || c == '\f' || c == 'r')
+	if (c == '\v' || c == '\f' || c == '\r')
 		return (1);
 	return (0);
 }
@@ -77,7 +77,9 @@ int	ft_atoi_base(char *str, char *base)
 	if (size == 0)
 		return (0);
 	while (is_space(*str))
+	{
 		++str;
+	}
 	while (*str == '-' || *str == '+')
 	{
 		if (*str == '-')

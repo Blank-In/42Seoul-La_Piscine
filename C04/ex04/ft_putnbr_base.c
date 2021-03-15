@@ -6,7 +6,7 @@
 /*   By: minjunki <minjunki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/13 13:09:28 by minjunki          #+#    #+#             */
-/*   Updated: 2021/03/13 15:11:11 by minjunki         ###   ########.fr       */
+/*   Updated: 2021/03/14 18:01:52 by minjunki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	print_nbr(int nbr, int flg, int size, char *base)
 {
-	int		cnt;
-	char	list[40];
+	int	cnt;
+	int	list[50];
 
 	cnt = 0;
 	while (nbr != 0)
@@ -39,7 +39,7 @@ int		base_check(char *base)
 	int temp;
 
 	cnt = 0;
-	if (*base == 0 || base[1] == 0)
+	if (base == 0 || *base == 0 || base[1] == 0)
 		return (0);
 	while (base[cnt])
 	{

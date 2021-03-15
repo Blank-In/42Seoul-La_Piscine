@@ -6,53 +6,41 @@
 /*   By: minjunki <minjunki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 14:28:34 by minjunki          #+#    #+#             */
-/*   Updated: 2021/02/22 14:28:38 by minjunki         ###   ########.fr       */
+/*   Updated: 2021/03/14 17:10:01 by minjunki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putchar(char c)
+void	ft_write(char c)
 {
 	write(1, &c, 1);
 }
 
-void	ft_putint(int nb, int flg, int size)
+void	ft_nbr(int nb)
 {
-	if (flg < 0)
-	{
-		ft_putchar('-');
-	}
-	while (size != 0)
-	{
-		ft_putchar('0' + nb / size);
-		nb %= size;
-		size /= 10;
-	}
+	if (nb > 9)
+		ft_nbr(nb / 10);
+	ft_write('0' + nb % 10);
 }
 
 void	ft_putnbr(int nb)
 {
-	int flg;
-	int size;
-
-	flg = 0;
-	size = 10;
-	if (nb < 0)
+	if (nb == 0)
 	{
-		size *= --flg;
+		write(1, "0", 1);
+		return ;
 	}
-	while (nb / size != 0)
+	if (nb == -2147483648)
 	{
-		if (size == 1000000000 || size == -1000000000)
-		{
-			break ;
-		}
-		size *= 10;
+		write(1, "-2", 2);
+		ft_nbr(147483648);
+		return ;
 	}
-	if (size < 1000000000 && size > -1000000000)
+	else if (nb < 0)
 	{
-		size /= 10;
+		write(1, "-", 1);
+		nb *= -1;
 	}
-	ft_putint(nb, flg, size);
+	ft_nbr(nb);
 }
