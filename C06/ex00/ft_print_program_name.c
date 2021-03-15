@@ -14,10 +14,13 @@
 
 int	main(int argc, char *args[])
 {
-	while (*args[0])
+	if (argc > 0)
 	{
-		write(1, args[0], 1);
-		++args[0];
+		while (*args[0])
+		{
+			write(1, args[0], 1);
+			++args[0];
+		}
 	}
 	write(1, "\n", 1);
 	return (0);
